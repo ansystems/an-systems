@@ -66,7 +66,7 @@ const OnePager: React.FC = () => {
         .nav a { color: var(--muted); margin-left: 18px; font-weight: 600; }
         .nav a:hover { color: var(--text); }
         .hero { padding: 80px 0 40px; }
-        .hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center; }
+        .hero-inner { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
         .kicker { color: var(--brand-2); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 12px; }
         h1 { margin: 10px 0 14px; font-size: 40px; line-height: 1.15; }
         .lead { color: var(--muted); font-size: 18px; line-height: 1.6; }
@@ -132,13 +132,6 @@ const OnePager: React.FC = () => {
                 <a className="btn" href="#services">
                   Explore services
                 </a>
-              </div>
-            </div>
-            <div className="hero-visual card">
-              <div className="visual">
-                <div className="orbit">
-                  <div className="planet"></div>
-                </div>
               </div>
             </div>
           </div>
