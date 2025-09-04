@@ -8,7 +8,7 @@ import Contact from "./pages/Contact";
 
 export default function App() {
   return (
-    <Router>
+    
       <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-white min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1">
@@ -21,6 +21,6 @@ export default function App() {
         </main>
         <Footer />
       </div>
-    </Router>
+
   );
 }
