@@ -2,12 +2,15 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 
-export default function Contact() {
+const Contact = () => {
   const form = useRef();
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setLoading(true);
+    setStatus("");
 
     emailjs
       .sendForm(
@@ -18,11 +21,13 @@ export default function Contact() {
       )
       .then(
         () => {
-          setStatus("Message sent successfully ✅");
+          setStatus("✅ Message sent successfully!");
           form.current.reset();
+          setLoading(false);
         },
         (error) => {
-          setStatus("Something went wrong ❌ " + error.text);
+          setStatus("❌ Something went wrong: " + error.text);
+          setLoading(false);
         }
       );
   };
@@ -47,6 +52,7 @@ export default function Contact() {
             <input
               type="text"
               name="user_name"
+              aria-label="Name"
               required
               className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 outline-none"
             />
@@ -56,6 +62,7 @@ export default function Contact() {
             <input
               type="email"
               name="user_email"
+              aria-label="Email"
               required
               className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 outline-none"
             />
@@ -64,6 +71,7 @@ export default function Contact() {
             <label className="block mb-2 text-sm">Message</label>
             <textarea
               name="message"
+              aria-label="Message"
               rows="5"
               required
               className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-purple-500 focus:ring-2 focus:ring-purple-500 outline-none"
@@ -71,16 +79,17 @@ export default function Contact() {
           </div>
           <button
             type="submit"
+            disabled={loading}
             className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 hover:opacity-90 transition shadow-lg"
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
 
-        {status && (
-          <p className="mt-6 text-center text-sm text-green-400">{status}</p>
-        )}
+        {status && <p className="mt-6 text-center text-sm text-green-400">{status}</p>}
       </motion.div>
     </section>
   );
-}
+};
+
+export default Contact;

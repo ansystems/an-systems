@@ -4,13 +4,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function About() {
+const About = () => {
   const sectionsRef = useRef([]);
   const teamRef = useRef([]);
 
   useEffect(() => {
-    // Section animations
-    sectionsRef.current.forEach((sec, i) => {
+    sectionsRef.current.forEach((sec) => {
       gsap.fromTo(
         sec,
         { opacity: 0, y: 80 },
@@ -27,7 +26,6 @@ export default function About() {
       );
     });
 
-    // Team card stagger animation
     gsap.fromTo(
       teamRef.current,
       { opacity: 0, y: 50 },
@@ -70,7 +68,6 @@ export default function About() {
 
   return (
     <section className="min-h-screen py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
-      {/* Company Intro */}
       <div
         ref={(el) => (sectionsRef.current[0] = el)}
         className="max-w-4xl mx-auto text-center mb-20"
@@ -83,7 +80,6 @@ export default function About() {
         </p>
       </div>
 
-      {/* Mission */}
       <div
         ref={(el) => (sectionsRef.current[1] = el)}
         className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 mb-20"
@@ -104,7 +100,6 @@ export default function About() {
         </div>
       </div>
 
-      {/* Team Section */}
       <div
         ref={(el) => (sectionsRef.current[2] = el)}
         className="max-w-6xl mx-auto text-center mb-12"
@@ -134,4 +129,6 @@ export default function About() {
       </div>
     </section>
   );
-}
+};
+
+export default About;

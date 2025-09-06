@@ -1,17 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FaTwitter, FaLinkedin, FaGithub, FaGlobe } from "react-icons/fa";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-300 py-10 mt-20">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
         {/* Brand */}
         <div>
           <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             ITCompany
           </h2>
-          <p className="mt-4 text-sm">
+          <p className="mt-4 text-sm leading-relaxed">
             Delivering innovative IT solutions for businesses worldwide.
           </p>
         </div>
@@ -26,26 +27,17 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link
-                to="/about"
-                className="hover:text-purple-400 transition-colors"
-              >
+              <Link to="/about" className="hover:text-purple-400 transition-colors">
                 About
               </Link>
             </li>
             <li>
-              <Link
-                to="/services"
-                className="hover:text-purple-400 transition-colors"
-              >
+              <Link to="/services" className="hover:text-purple-400 transition-colors">
                 Services
               </Link>
             </li>
             <li>
-              <Link
-                to="/contact"
-                className="hover:text-purple-400 transition-colors"
-              >
+              <Link to="/contact" className="hover:text-purple-400 transition-colors">
                 Contact
               </Link>
             </li>
@@ -55,17 +47,47 @@ export default function Footer() {
         {/* Socials */}
         <div>
           <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
-          <div className="flex gap-4">
-            {["🌐", "🐦", "💼"].map((icon, i) => (
-              <motion.a
-                key={i}
-                whileHover={{ scale: 1.2 }}
-                href="#"
-                className="text-2xl"
-              >
-                {icon}
-              </motion.a>
-            ))}
+          <div className="flex gap-5">
+            <motion.a
+              whileHover={{ scale: 1.2 }}
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter"
+              className="text-2xl hover:text-purple-400 transition-colors"
+            >
+              <FaTwitter />
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.2 }}
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-2xl hover:text-purple-400 transition-colors"
+            >
+              <FaLinkedin />
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.2 }}
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-2xl hover:text-purple-400 transition-colors"
+            >
+              <FaGithub />
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.2 }}
+              href="https://itcompany.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Website"
+              className="text-2xl hover:text-purple-400 transition-colors"
+            >
+              <FaGlobe />
+            </motion.a>
           </div>
         </div>
       </div>
@@ -76,4 +98,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
