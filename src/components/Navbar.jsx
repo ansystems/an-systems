@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "../assets/logo.jpeg";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -16,11 +18,18 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white shadow-lg z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <Link
-          to="/"
-          className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
-        >
-          ITCompany
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src={logo}
+            alt="AN-SYSTEMS Logo"
+            className="h-10 md:h-12 object-contain"
+          />
+          <div className="flex flex-col">
+            <span className="text-xl md:text-2xl font-bold">AN-SYSTEMS</span>
+            <span className="text-sm md:text-base text-gray-300 uppercase tracking-wide">
+              Software Consultancy
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Menu */}
@@ -29,7 +38,11 @@ export default function Navbar() {
             <motion.div whileHover={{ scale: 1.1 }} key={i}>
               <Link
                 to={link.path}
-                className="hover:text-purple-400 transition-colors"
+                className={`hover:text-purple-400 transition-colors ${
+                  location.pathname === link.path
+                    ? "text-purple-400 font-semibold"
+                    : ""
+                }`}
               >
                 {link.name}
               </Link>
@@ -41,6 +54,7 @@ export default function Navbar() {
         <button
           className="md:hidden text-2xl focus:outline-none"
           onClick={() => setOpen(!open)}
+          aria-label="Toggle Menu"
         >
           {open ? "✖" : "☰"}
         </button>
@@ -50,9 +64,9 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
             className="md:hidden bg-gray-800 overflow-hidden"
           >
@@ -62,7 +76,11 @@ export default function Navbar() {
                   <Link
                     to={link.path}
                     onClick={() => setOpen(false)}
-                    className="block py-2 hover:text-purple-400"
+                    className={`block py-2 hover:text-purple-400 ${
+                      location.pathname === link.path
+                        ? "text-purple-400 font-semibold"
+                        : ""
+                    }`}
                   >
                     {link.name}
                   </Link>

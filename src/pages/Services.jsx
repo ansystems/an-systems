@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Services() {
+const Services = () => {
   const cardsRef = useRef([]);
 
   useEffect(() => {
@@ -27,28 +27,40 @@ export default function Services() {
 
   const services = [
     {
-      title: "Web Development",
-      desc: "Modern, responsive websites built with cutting-edge technologies.",
+      title: "Data & AI",
+      desc: "Data pipelines (Airflow), real-time queues (Kafka, Kinesis), data processing (Flink, Spark), storage (Parquet, Delta, Avro), warehousing (Snowflake/Star Schema), CDC (Debezium), and ML engineering.",
     },
     {
-      title: "Mobile App Development",
-      desc: "Cross-platform apps designed for performance and usability.",
+      title: "Cloud",
+      desc: "Cloud architecture, migration, FinOps, DevOps, CI/CD pipelines, and platform engineering tailored to your needs.",
     },
     {
-      title: "Cloud Solutions",
-      desc: "Scalable cloud integration for your growing business needs.",
+      title: "Digital Engineering",
+      desc: "Product engineering, modern web/mobile apps, API development, and scalable digital platforms.",
+    },
+    {
+      title: "Software Testing & QA",
+      desc: "Manual, automated, performance, security, mobile app, and API testing with industry-standard tools.",
     },
     {
       title: "Cybersecurity",
-      desc: "Protecting your data and systems with enterprise-grade security.",
+      desc: "Vulnerability assessment, penetration testing, risk management, and enterprise-grade protection.",
     },
     {
-      title: "IT Consulting",
-      desc: "Expert advice to align technology with your business strategy.",
+      title: "Learning & Talent",
+      desc: "Upskilling teams in Data Engineering, AI/ML, Cloud, and Digital Tech. Talent & organisation transformation.",
     },
     {
-      title: "UI/UX Design",
-      desc: "Beautiful and user-friendly digital experiences.",
+      title: "Technology Transformation",
+      desc: "Helping businesses adopt emerging technologies, cloud-native strategies, and observability practices.",
+    },
+    {
+      title: "Managed Services",
+      desc: "Comprehensive IT management, monitoring, and support to keep your systems reliable and cost-efficient.",
+    },
+    {
+      title: "Consulting Services",
+      desc: "Expert guidance to align IT strategy with business goals, leveraging modern data and digital solutions.",
     },
   ];
 
@@ -76,4 +88,6 @@ export default function Services() {
       </div>
     </section>
   );
-}
+};
+
+export default Services;
