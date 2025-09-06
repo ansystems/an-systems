@@ -29,11 +29,11 @@ const Home = () => {
 
   return (
     <>
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex flex-col w-full  items-center justify-center overflow-hidden">
         <ImageSlider />
-      </section>
+      
 
-      <section className="py-20 px-6 text-center bg-gray-900">
+      <section className="py-5 px-5 text-center bg-gray-900 h-">
         <motion.div
           ref={heroRef}
           className="max-w-4xl mx-auto"
@@ -66,6 +66,7 @@ const Home = () => {
             </Link>
           </motion.div>
         </motion.div>
+      </section>
       </section>
     </>
   );

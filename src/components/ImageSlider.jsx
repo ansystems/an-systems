@@ -1,51 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import image1 from "../assets/slider/image1.jpg";
+import image2 from "../assets/slider/image2.jpg";
+import image3 from "../assets/slider/image3.jpg";
+import image4 from "../assets/slider/image4.jpg";
+import image5 from "../assets/slider/image5.jpg";
+import image6 from "../assets/slider/image6.jpg";
 
-const images = [
-  "https://source.unsplash.com/1600x900/?technology",
-  "https://source.unsplash.com/1600x900/?cloud",
-  "https://source.unsplash.com/1600x900/?data",
-];
+const images = [image1, image2, image3, image4, image5, image6];
 
 const ImageSlider = () => {
   const [current, setCurrent] = useState(0);
 
   const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % images.length);
+    setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
-  const prevSlide = () => {
-    setCurrent((prev) => (prev - 1 + images.length) % images.length);
-  };
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="w-full h-full relative overflow-hidden">
-      <AnimatePresence>
+    <div className="relative w-full overflow-hidden rounded-2xl md:h-96 lg:h-[500px] mt-5 pb-2 md:mt-2">
+
+      
         <motion.img
           key={current}
           src={images[current]}
           alt={`Slide ${current}`}
-          className="w-full h-full object-cover"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
+          className="w-full h-64 md:h-96 lg:h-[500px] object-cover"
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -100 }}
+          transition={{ duration: 0.6 }}
         />
-      </AnimatePresence>
+  
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-5 top-1/2 -translate-y-1/2 bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-800/80 transition"
-      >
-        &#8592;
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-5 top-1/2 -translate-y-1/2 bg-gray-800/50 text-white p-2 rounded-full hover:bg-gray-800/80 transition"
-      >
-        &#8594;
-      </button>
+      {/* Dots */}
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-center gap-1">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`rounded-full w-2.5 h-2.5 transition-colors ${
+              current === index ? "bg-white" : "bg-gray-500"
+            }`}
+          />
+        ))}
+      </div>
+
     </div>
   );
 };
