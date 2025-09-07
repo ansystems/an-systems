@@ -22,14 +22,14 @@ const ImageSlider = () => {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl md:h-96 lg:h-[500px] mt-5 pb-2 md:mt-2">
+    <div className="relative w-full overflow-hidden pt-2 rounded-2xl md:h-96 lg:h-[500px] h-100 pb-2 md:mt-2  bg-gray-900 mt-10">
 
       
         <motion.img
           key={current}
           src={images[current]}
           alt={`Slide ${current}`}
-          className="w-full h-64 md:h-96 lg:h-[500px] object-cover"
+          className="w-full h-100 md:h-96 lg:h-[500px] p-2  object-cover overflow-hidden"
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}

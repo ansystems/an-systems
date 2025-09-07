@@ -21,7 +21,9 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
-
+        <About/>
+        <Services />
+        <Contact />
         <Footer />
       </div>
     

@@ -1,14 +1,21 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
+import FAQ from "../components/Faq";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import ImageSlider from "../components/ImageSlider";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const heroRef = useRef(null);
+  const homeFaqs = [
+    { question: "What is AN Systems?", answer: "AN Systems is an IT services company offering solutions in Cloud, AI, Cybersecurity, and more." },
+    { question: "Which industries do you serve?", answer: "We work across multiple industries like finance, healthcare, e-commerce, and startups." },
+    { question: "How can I contact your team?", answer: "You can reach us via our contact page or email us at info@ansystems.com." },
+  ];
 
   useEffect(() => {
     if (heroRef.current) {
@@ -33,7 +40,7 @@ const Home = () => {
         <ImageSlider />
       
 
-      <section className="py-5 px-5 text-center bg-gray-900 h-">
+  
         <motion.div
           ref={heroRef}
           className="max-w-4xl mx-auto"
@@ -57,17 +64,18 @@ const Home = () => {
             competition.
           </motion.p>
 
-          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+          <motion.div whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }} className="flex justify-center">
             <Link
               to="/services"
-              className="inline-block px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition"
+              className="mx-auto px-8 py-3 justify-center items-center  bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:opacity-100 transition"
             >
               Explore Our Services
             </Link>
           </motion.div>
         </motion.div>
       </section>
-      </section>
+  
+     <FAQ faqs={homeFaqs} title="Frequently Asked Questions" />
     </>
   );
 };
