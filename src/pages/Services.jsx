@@ -1,11 +1,18 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import FAQ from "../components/Faq";
+import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
-
 const Services = () => {
   const cardsRef = useRef([]);
+    const serviceFaqs = [
+    { question: "Do you provide automated QA testing?", answer: "Yes, we provide manual as well as automated testing using industry-standard tools." },
+    { question: "Can you migrate on-premise systems to the cloud?", answer: "Absolutely. We specialize in cloud migration, DevOps, and platform engineering." },
+    { question: "Do you offer cybersecurity audits?", answer: "Yes, we conduct vulnerability assessments, penetration testing, and full security audits." },
+  ];
+
 
   useEffect(() => {
     gsap.fromTo(
@@ -76,16 +83,21 @@ const Services = () => {
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service, index) => (
-          <div
+                    <motion.div
             key={index}
             ref={(el) => (cardsRef.current[index] = el)}
-            className="p-6 rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:scale-105"
+            whileHover={{ scale: 1.05 }}   // 👈 zoom effect here
+            transition={{ type: "spring", stiffness: 300 }}
+            className="p-6 rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 
+                       border border-gray-700 shadow-lg hover:shadow-2xl 
+                       hover:border-blue-500 cursor-pointer"
           >
             <h3 className="text-2xl font-semibold mb-3">{service.title}</h3>
             <p className="text-gray-300">{service.desc}</p>
-          </div>
-        ))}
+          </motion.div>
+        ))      }
       </div>
+            <FAQ faqs={serviceFaqs} title="Service Related FAQs" />
     </section>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,9 +69,11 @@ const About = () => {
 
   return (
     <section className="min-h-screen py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+      {/* About Section */}
       <div
         ref={(el) => (sectionsRef.current[0] = el)}
         className="max-w-4xl mx-auto text-center mb-20"
+        
       >
         <h2 className="text-4xl font-bold mb-4">About Us</h2>
         <p className="text-gray-300 text-lg">
@@ -80,26 +83,33 @@ const About = () => {
         </p>
       </div>
 
+      {/* Mission & Vision Cards */}
       <div
         ref={(el) => (sectionsRef.current[1] = el)}
         className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 mb-20"
+        
       >
-        <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-gray-700 shadow-lg">
+        <motion.div className="p-6 rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-gray-700 shadow-lg 
+                        hover:shadow-2xl hover:scale-105 transition-transform duration-500"
+                        whileHover={{ scale: 1.05 }}>
           <h3 className="text-2xl font-semibold mb-3">Our Mission</h3>
           <p className="text-gray-300">
             To deliver scalable, secure, and user-friendly digital solutions
             that help businesses thrive in a rapidly evolving world.
           </p>
-        </div>
-        <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-gray-700 shadow-lg">
+        </motion.div>
+        <motion.div className="p-6 rounded-2xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-gray-700 shadow-lg 
+                        hover:shadow-2xl hover:scale-105 transition-transform duration-500
+                        " whileHover={{ scale: 1.05 }}>
           <h3 className="text-2xl font-semibold mb-3">Our Vision</h3>
           <p className="text-gray-300">
             To become a global leader in IT innovation, inspiring transformation
             and growth through technology.
           </p>
-        </div>
+        </motion.div>
       </div>
 
+      {/* Team Section */}
       <div
         ref={(el) => (sectionsRef.current[2] = el)}
         className="max-w-6xl mx-auto text-center mb-12"
@@ -110,21 +120,33 @@ const About = () => {
         </p>
       </div>
 
+      {/* Team Cards */}
       <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {team.map((member, i) => (
-          <div
+          <motion.div
             key={i}
+          
             ref={(el) => (teamRef.current[i] = el)}
-            className="p-6 rounded-2xl bg-gray-800/60 border border-gray-700 shadow-lg hover:shadow-2xl transition-transform hover:scale-105 text-center"
-          >
-            <img
-              src={member.img}
-              alt={member.name}
-              className="w-24 h-24 mx-auto rounded-full mb-4 border-2 border-purple-500"
-            />
-            <h4 className="text-xl font-semibold">{member.name}</h4>
-            <p className="text-gray-400">{member.role}</p>
-          </div>
+            className="p-6 rounded-2xl bg-gray-800/60 border border-gray-700 shadow-lg 
+                       hover:shadow-2xl transition-transform
+                      
+             duration-500 text-center group"
+             whileHover={{ scale: 1.2 }}
+>
+  <motion.div
+    className="overflow-hidden rounded-full w-24 h-24 mx-auto mb-4 border-2 border-purple-500"
+    whileHover={{ scale: 1.5 }}
+  >
+    <img
+      src={member.img}
+      alt={member.name}
+      className="w-full h-full object-cover rounded-full transform transition-transform duration-500"
+    />
+  </motion.div>
+  <h4 className="text-xl font-semibold">{member.name}</h4>
+  <p className="text-gray-400">{member.role}</p>
+</motion.div>
+
         ))}
       </div>
     </section>
