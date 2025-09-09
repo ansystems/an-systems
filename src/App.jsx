@@ -18,7 +18,7 @@ const Faqs = [
   { question: "Do you offer cybersecurity audits?", answer: "Yes, we conduct vulnerability assessments, penetration testing, and full security audits." },
 ];
 
-export default function App() {
+const App = () => {
   return (
       <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-white min-h-screen flex flex-col">
         <Navbar />
@@ -41,3 +41,4 @@ export default function App() {
     
   );
 }
+export default App;

@@ -33,7 +33,9 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-screen py-20 px-6 bg-gradient-to-b from-gray-800 to-gray-900 text-white flex items-center justify-center">
+    <section className="min-h-screen py-10 px-6 bg-gradient-to-b from-gray-800 to-gray-900 text-white flex items-center justify-center"
+    style={{ backgroundImage: "url('/assets/background.jpg')" }}
+    >
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

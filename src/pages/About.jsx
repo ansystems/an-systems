@@ -30,11 +30,12 @@ const About = () => {
 
   
   return (
-    <section className="min-h-screen py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <section className="min-h-1/2 py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-800 text-white"
+      style={{ backgroundImage: "url('/assets/background.jpg')" }}>
       {/* About Section */}
       <div
         ref={(el) => (sectionsRef.current[0] = el)}
-        className="max-w-4xl mx-auto text-center mb-20"
+        className="max-w-4xl mx-auto text-center mb-10"
         
       >
         <h2 className="text-4xl font-bold mb-4">About Us</h2>
@@ -48,11 +49,11 @@ const About = () => {
       {/* Mission & Vision Cards */}
       <div
         ref={(el) => (sectionsRef.current[1] = el)}
-        className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 mb-20"
+        className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 mb-10"
         
       >
-        <motion.div className="p-6 rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-gray-700 shadow-lg 
-                        hover:shadow-2xl hover:scale-105 transition-transform duration-500"
+        <motion.div className="p-5 rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-gray-700 shadow-lg 
+                        hover:shadow-2xl transition-transform duration-500 cursor-pointer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 1.05 }}>
           <h3 className="text-2xl font-semibold mb-3">Our Mission</h3>
@@ -61,9 +62,9 @@ const About = () => {
             that help businesses thrive in a rapidly evolving world.
           </p>
         </motion.div>
-        <motion.div className="p-6 rounded-2xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-gray-700 shadow-lg 
-                        hover:shadow-2xl hover:scale-105 transition-transform duration-500
-                        " whileHover={{ scale: 1.05 }}
+        <motion.div className="p-5 rounded-2xl bg-gradient-to-br from-purple-600/20 to-blue-600/20 border border-gray-700 shadow-lg
+                        hover:shadow-2xl transition-transform duration-500 cursor-pointer" 
+                        whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 1.05 }}>
           <h3 className="text-2xl font-semibold mb-3">Our Vision</h3>
           <p className="text-gray-300">

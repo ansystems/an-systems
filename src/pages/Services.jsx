@@ -67,7 +67,8 @@ const Services = () => {
   ];
 
   return (
-    <section className="min-h-screen py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <section className="min-h-screen py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-800 text-white"
+    style={{ backgroundImage: "url('/assets/background.jpg')" }}>
       <div className="max-w-6xl mx-auto text-center mb-16">
         <h2 className="text-4xl font-bold mb-4">Our Services</h2>
         <p className="text-gray-300 max-w-2xl mx-auto">
@@ -81,7 +82,8 @@ const Services = () => {
                     <motion.div
             key={index}
             ref={(el) => (cardsRef.current[index] = el)}
-            whileHover={{ scale: 1.05 }}   // 👈 zoom effect here
+            whileHover={{ scale: 1.05 }}  
+            whileTap={{ scale: 0.95 }} // 👈 zoom effect here
             transition={{ type: "spring", stiffness: 300 }}
             className="p-6 rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 
                        border border-gray-700 shadow-lg hover:shadow-2xl 

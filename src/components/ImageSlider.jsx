@@ -25,8 +25,8 @@ const ImageSlider = () => {
   
 
   return (
-    <div className="relative p-2 mt-10 w-full overflow-hidden pt-3 rounded-2xl md:h-96 lg:h-[500px] h-100 pb-2 md:mt-2 bg-gray-900">
-
+    <div className="relative py-20 px-6  w-full overflow-hidden pt-15 rounded-2xl md:h-96 lg:h-[500px] h-100 pb-2 md:mt-2 bg-gray-900"
+      style={{ backgroundImage: "url('/assets/background.jpg')" }}>
         <motion.img
           key={current}
           src={images[current]}
@@ -37,7 +37,7 @@ const ImageSlider = () => {
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.6 }}
         />
-        <button onClick={nextSlide} className="absolute top-1/2 right-2 transform translate-y-1/2 bg-gray-800 p-2 rounded-full">
+        <button onClick={nextSlide} className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full">
           <i className="ri-arrow-right-fill"></i>
         </button>
 
