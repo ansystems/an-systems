@@ -46,7 +46,7 @@ const Home = () => {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
           whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 2.05 }}
+          whileTap={{ scale: 1.05 }}
         >
           <h1 className="text-4xl md:text-5xl  p-2 font-bold mb-6 text-white">
             Empowering Businesses with Data, Cloud & Digital Innovation
@@ -54,7 +54,7 @@ const Home = () => {
           <motion.p
             className="text-lg p-2 text-gray-300 mb-8"
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 2.05 }}
+            whileTap={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
             We help companies unlock the true power of technology — from Data
@@ -64,7 +64,7 @@ const Home = () => {
             competition.
           </motion.p>
 
-          <motion.div whileHover={{ scale: 1.3 }} whileTap={{ scale: 2.05 }} transition={{ duration: 0.5 }} className="flex justify-center">
+          <motion.div whileHover={{ scale: 1.3 }} whileTap={{ scale: 1.05 }} transition={{ duration: 0.5 }} className="flex justify-center">
             <Link
               to="/services"
               className="mx-auto px-8 py-3 justify-center items-center  bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:opacity-100 transition"
