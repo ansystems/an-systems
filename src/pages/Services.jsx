@@ -7,12 +7,7 @@ import { motion } from "framer-motion";
 gsap.registerPlugin(ScrollTrigger);
 const Services = () => {
   const cardsRef = useRef([]);
-    const serviceFaqs = [
-    { question: "Do you provide automated QA testing?", answer: "Yes, we provide manual as well as automated testing using industry-standard tools." },
-    { question: "Can you migrate on-premise systems to the cloud?", answer: "Absolutely. We specialize in cloud migration, DevOps, and platform engineering." },
-    { question: "Do you offer cybersecurity audits?", answer: "Yes, we conduct vulnerability assessments, penetration testing, and full security audits." },
-  ];
-
+   
 
   useEffect(() => {
     gsap.fromTo(
@@ -97,7 +92,7 @@ const Services = () => {
           </motion.div>
         ))      }
       </div>
-            <FAQ faqs={serviceFaqs} title="Service Related FAQs" />
+            
     </section>
   );
 };

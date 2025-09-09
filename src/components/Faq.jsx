@@ -23,7 +23,7 @@ const FAQ = ({ faqs, title }) => {
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full flex justify-between items-center p-4 text-left text-lg font-medium bg-gray-800 hover:bg-gray-700"
+                className="w-full flex justify-between items-center p-4 text-left text-lg font-medium bg-gray-800 hover:bg-gray-700 transition-colors duration-300  "
               >
                 {faq.question}
                 <span>{activeIndex === index ? "−" : "+"}</span>
@@ -35,7 +35,7 @@ const FAQ = ({ faqs, title }) => {
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="p-4 bg-gray-800 text-gray-300"
+                  className="p-4 bg-[#1f2937] text-gray-300"
                 >
                   {faq.answer}
                 </motion.div>

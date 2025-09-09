@@ -5,17 +5,14 @@ import FAQ from "../components/Faq";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import ImageSlider from "../components/ImageSlider";
+import Footer from "../components/Footer";
 
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const heroRef = useRef(null);
-  const homeFaqs = [
-    { question: "What is AN Systems?", answer: "AN Systems is an IT services company offering solutions in Cloud, AI, Cybersecurity, and more." },
-    { question: "Which industries do you serve?", answer: "We work across multiple industries like finance, healthcare, e-commerce, and startups." },
-    { question: "How can I contact your team?", answer: "You can reach us via our contact page or email us at info@ansystems.com." },
-  ];
+  
 
   useEffect(() => {
     if (heroRef.current) {
@@ -49,11 +46,11 @@ const Home = () => {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+          <h1 className="text-4xl md:text-5xl  p-2 font-bold mb-6 text-white">
             Empowering Businesses with Data, Cloud & Digital Innovation
           </h1>
           <motion.p
-            className="text-lg text-gray-300 mb-8"
+            className="text-lg p-2 text-gray-300 mb-8"
             whileHover={{ scale: 1.05, color: "#ffffff" }}
             transition={{ duration: 0.3 }}
           >
@@ -73,9 +70,10 @@ const Home = () => {
             </Link>
           </motion.div>
         </motion.div>
-      </section>
-  
-     <FAQ faqs={homeFaqs} title="Frequently Asked Questions" />
+        </section>
+      
+      
+      
     </>
   );
 };
