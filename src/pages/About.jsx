@@ -54,7 +54,7 @@ const About = () => {
         <motion.div className="p-5 rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-gray-700 shadow-lg 
                         hover:shadow-2xl transition-transform duration-500 cursor-pointer"
                         whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 2.05 }}>
+                        whileTap={{ scale: 0.95 }}>
           <h3 className="text-2xl font-semibold mb-3">Our Mission</h3>
           <p className="text-gray-300">
             To deliver scalable, secure, and user-friendly digital solutions

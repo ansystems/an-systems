@@ -82,7 +82,7 @@ const Services = () => {
             key={index}
             ref={(el) => (cardsRef.current[index] = el)}
             whileHover={{ scale: 1.05 }}  
-            whileTap={{ scale: 1.05 }} // 👈 zoom effect here
+            whileTap={{ scale: 0.95 }} // 👈 zoom effect here
             transition={{ type: "spring", stiffness: 300 }}
             className="p-6 rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 
                        border border-gray-700 shadow-lg hover:shadow-2xl 
