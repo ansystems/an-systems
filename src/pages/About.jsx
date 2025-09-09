@@ -30,8 +30,7 @@ const About = () => {
 
   
   return (
-    <section className="min-h-1/2 py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-800 text-white"
-      style={{ backgroundImage: "url('/assets/background.jpg')" }}>
+    <section className="min-h-1/2 py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       {/* About Section */}
       <div
         ref={(el) => (sectionsRef.current[0] = el)}

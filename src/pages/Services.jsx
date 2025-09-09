@@ -67,8 +67,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="min-h-screen py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-800 text-white"
-    style={{ backgroundImage: "url('/assets/background.jpg')" }}>
+    <section className="min-h-screen py-20 px-6 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       <div className="max-w-6xl mx-auto text-center mb-16">
         <h2 className="text-4xl font-bold mb-4">Our Services</h2>
         <p className="text-gray-300 max-w-2xl mx-auto">

@@ -25,8 +25,8 @@ const ImageSlider = () => {
   
 
   return (
-    <div className="relative py-20 px-6  w-full overflow-hidden pt-15 rounded-2xl md:h-96 lg:h-[500px] h-100 pb-2 md:mt-2 bg-gray-900"
-      style={{ backgroundImage: "url('/assets/background.jpg')" }}>
+    <div className="relative py-20 px-6  w-full overflow-hidden pt-15 rounded-2xl md:h-96 lg:h-[500px] h-100 pb-2 md:mt-2 bg-gray-900">
+      
         <motion.img
           key={current}
           src={images[current]}

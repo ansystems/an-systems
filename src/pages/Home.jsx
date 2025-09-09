@@ -33,10 +33,7 @@ const Home = () => {
 
   return (
     <>
-      <section
-        className="relative h-screen flex flex-col w-full p-2 items-center justify-center overflow-hidden"
-        style={{ backgroundImage: "url('/assets/background.jpg')" }}
-      >
+      <section className="relative h-screen flex flex-col w-full p-2 items-center justify-center overflow-hidden">
         <ImageSlider />
       
 
