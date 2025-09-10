@@ -80,36 +80,54 @@ function Navbar() {
 
       {/* Mobile Menu */}
       <AnimatePresence>
+
         {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            
-            className="md:hidden bg-gray-800 overflow-hidden"
-          >
-            <ul className="flex flex-col px-6 py-4 space-y-4">
+          
+            <ul className="flex flex-col px-4 py-5 space-y-3 justify-center items-center rounded-full mx-5 my-5">
               {navLinks.map((link, i) => (
                 <li key={i}>
+                  <motion.div
+                          key={i}
+              className="px-4 rounded-4xl border border-transparent"
+              whileHover={{
+                scale: 1.099,
+                y: -3,
+                backgroundColor: "rgba(255,255,255,0.08)", // transparent glass effect
+                borderColor: "white", // purple border
+                boxShadow: "0px 10px 22px rgba(0,0,0,0.25)", // 3D shadow
+              }}
+              whileTap={{
+                scale: 1.099,
+                y: -3,
+                backgroundColor: "rgba(255,255,255,0.08)", // transparent glass effect
+                 borderColor: "white", // darker purple when clicked
+                boxShadow: "0px 10px 22px rgba(0,0,0,0.25)",
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            >
+              
+          
                   <Link
                     to={link.path}
-                    onClick={() => setOpen(false)}
-                    className={`block py-2 hover:text-purple-400 ${
+                    className={`block py-2 hover:text-red-400 ${
                       location.pathname === link.path
-                        ? "text-purple-400 font-semibold"
+                        ? "red-purple-400 font-semibold"
                         : ""
                     }`}
+                    onClick={() => setOpen(false)}
                   >
                     {link.name}
                   </Link>
+                  </motion.div>
                 </li>
+                 
               ))}
             </ul>
-          </motion.div>
+         
         )}
       </AnimatePresence>
     </nav>
   );
-}
+};
 
 export default Navbar;
