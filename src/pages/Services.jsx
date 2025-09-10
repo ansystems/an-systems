@@ -81,9 +81,23 @@ const Services = () => {
                     <motion.div
             key={index}
             ref={(el) => (cardsRef.current[index] = el)}
-            whileHover={{ scale: 1.05 }}  
-            whileTap={{ scale: 0.95 }} // 👈 zoom effect here
-            transition={{ type: "spring", stiffness: 300 }}
+            whileHover={{
+                scale: 1.09,
+                y: -2,
+                backgroundColor: "rgba(255,255,255,0.08)", // transparent glass effect
+                borderColor: "white", // purple border
+                boxShadow: "0px 10px 22px rgba(0,0,0,0.25)", // 3D shadow
+              }}
+              whileTap={{
+                scale: 0.8,
+                y: -2,
+                backgroundColor: "rgba(255,255,255,0.08)", // transparent glass effect
+                 borderColor: "white", // darker purple when clicked
+                boxShadow: "0px 10px 22px rgba(0,0,0,0.25)",
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            
+            
             className="p-6 rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 
                        border border-gray-700 shadow-lg hover:shadow-2xl 
                        hover:border-blue-500 cursor-pointer"

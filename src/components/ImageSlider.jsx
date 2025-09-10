@@ -36,6 +36,7 @@ const ImageSlider = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.6 }}
+          
         />
         <button onClick={nextSlide} className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full">
           <i className="ri-arrow-right-fill"></i>
