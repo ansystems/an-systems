@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import  { useEffect, useState } from "react";
 import React from "react";
 import { motion } from "framer-motion";
 import image1 from "../assets/slider/image1.jpg";
@@ -22,6 +22,15 @@ const ImageSlider = () => {
     setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
+
+  useEffect(()=>{
+    const timer = setTimeout(()=>{
+      nextSlide();
+    },5000);
+    return clearTimeout(()=>{
+
+    },[current]);
+  })
   
 
   return (
@@ -38,11 +47,11 @@ const ImageSlider = () => {
           transition={{ duration: 0.6 }}
           
         />
-        <button onClick={nextSlide} className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full">
+        <button onClick={nextSlide} className="absolute top-1/2 right-2 transform -translate-y-1/5 bg-gray-800 p-2 rounded-full">
           <i className="ri-arrow-right-fill"></i>
         </button>
 
-        <button onClick={prevSlide} className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full">
+        <button onClick={prevSlide} className="absolute top-1/2 left-2 transform -translate-y-1/5 bg-gray-800 p-2 rounded-full">
           <i className="ri-arrow-left-line"></i>
         </button>
 
