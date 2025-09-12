@@ -44,7 +44,7 @@ const Home = () => {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-5 text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-5 mt-20 text-white">
             Empowering Businesses with Data, Cloud & Digital Innovation
           </h1>
           <motion.p
