@@ -39,7 +39,7 @@ const ImageSlider = () => {
           key={current}
           src={images[current]}
           alt={`Slide ${current}`}
-          className="w-full md:h-96 lg:h-[600px]  md:pt-8 lg:pt-18 sm:pt-2 "
+          className="w-full md:h-96 lg:h-[600px] h-90 mt-10 pt-3"
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}

@@ -19,7 +19,7 @@ const Faqs = [
 
 const App = () => {
   return (
-      <div className="bg-gradient-to-b from-blue-900 to-blue-800  text-white min-h-screen flex flex-col max-h-full">
+      <div className="bg-gradient-to-b from-gray-900 to-gray-800  text-white min-h-screen flex flex-col max-h-full">
         <Navbar />
 
         {/* Main Page Content */}
