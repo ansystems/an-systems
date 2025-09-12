@@ -1,18 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import FAQ from "../components/Faq";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
 import ImageSlider from "../components/ImageSlider";
-import Footer from "../components/Footer";
-
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const heroRef = useRef(null);
-  
 
   useEffect(() => {
     if (heroRef.current) {
@@ -33,26 +29,26 @@ const Home = () => {
 
   return (
     <>
-      <section className="relative h-screen flex flex-col w-full p-2 items-center justify-center overflow-hidden">
+      {/* Top Full-Width Slider */}
+      <div className="w-full">
         <ImageSlider />
-      
+      </div>
 
-  
+      {/* Hero Section (separate, below slider) */}
+      <section className="relative min-h-[70vh] flex flex-col w-full items-center justify-center px-6 text-center bg-gray-900">
         <motion.div
           ref={heroRef}
-          className="max-w-4xl mx-auto cursor-pointer"
+          className="max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-    
         >
-          <h1 className="text-4xl md:text-5xl  p-2 font-bold mb-6 text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-5 text-white">
             Empowering Businesses with Data, Cloud & Digital Innovation
           </h1>
           <motion.p
-            className="text-lg p-2 text-gray-300 mb-8"
-            
+            className="text-lg text-gray-300 mb-6 mt-20"
             transition={{ duration: 0.3 }}
           >
             We help companies unlock the true power of technology — from Data
@@ -62,19 +58,21 @@ const Home = () => {
             competition.
           </motion.p>
 
-          <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.25}} className="flex justify-center">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.25 }}
+            className="flex justify-center"
+          >
             <Link
               to="/services"
-              className="mx-auto px-8 py-3 justify-center items-center  bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:opacity-100 transition"
+              className="px-8 py-3 bg-gradient-to-r mt-10 from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition"
             >
               Explore Our Services
             </Link>
           </motion.div>
         </motion.div>
-        </section>
-      
-      
-      
+      </section>
     </>
   );
 };

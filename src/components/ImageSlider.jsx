@@ -33,7 +33,7 @@ const ImageSlider = () => {
   
 
   return (
-    <div className="relative h-auto w-full  object-contain rounded-2xl md:h-96 lg:h-[600px] justify-center items-center sm:mt-10 md:mt-10 lg:mt-10 bg-gray-900 ">
+    <div className="relative h-auto w-full object-contain rounded-2xl md:h-96 lg:h-[600px] justify-center items-center bg-gray-900">
       
         <motion.img
           key={current}

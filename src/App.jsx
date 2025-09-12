@@ -4,7 +4,6 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import Contact from "./pages/Contact";
 import React from "react";  
 import FAQ from "./components/Faq";
 
@@ -20,7 +19,7 @@ const Faqs = [
 
 const App = () => {
   return (
-      <div className="bg-gradient-to-b from-gray-900 to-gray-800 pt-16 text-white min-h-screen flex flex-col max-h-full">
+      <div className="bg-gradient-to-b from-gray-900 to-gray-800  text-white min-h-screen flex flex-col max-h-full">
         <Navbar />
 
         {/* Main Page Content */}
@@ -29,13 +28,10 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
+          
           </Routes>
         </main>
-        <Services />
-        <About />
-        <Contact />
-        <FAQ faqs={Faqs} title={"Frequently Asked Questions" } />
+          <FAQ faqs={Faqs} title={"Frequently Asked Questions" } />
         <Footer />
       </div>
     
