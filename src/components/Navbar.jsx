@@ -15,7 +15,8 @@ function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-gradient-to-r via-emerald-800 from-gray-400 to-emerald-700 text-white shadow-lg z-50">
+    <nav className="fixed top-0 left-0 w-full mb-20 bg-gradient-to-r h-16  via-emerald-800 pb-1 from-gray-400 to-emerald-700 text-white shadow-lg z-50">
+
       <div className="max-w-7xl mx-auto px-2 py-1 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">

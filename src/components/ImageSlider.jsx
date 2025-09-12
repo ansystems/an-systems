@@ -6,9 +6,8 @@ import image2 from "../assets/slider/image2.jpg";
 import image3 from "../assets/slider/image3.jpg";
 import image4 from "../assets/slider/image4.jpg";
 import image5 from "../assets/slider/image5.jpg";
-import image6 from "../assets/slider/image6.jpg";
 
-const images = [image1, image2, image3, image4, image5, image6];
+const images = [image1, image2, image3, image4, image5];
 
 const ImageSlider = () => {
   const [current, setCurrent] = useState(0);
@@ -34,13 +33,13 @@ const ImageSlider = () => {
   
 
   return (
-    <div className="relative py-20 px-6  w-full overflow-hidden pt-8 rounded-2xl md:h-96 lg:h-[500px] h-100 pb-2 md:mt-2 bg-gray-900">
+    <div className="relative h-auto w-full  object-contain rounded-2xl md:h-96 lg:h-[600px] justify-center items-center sm:mt-10 md:mt-10 lg:mt-10 bg-gray-900 ">
       
         <motion.img
           key={current}
           src={images[current]}
           alt={`Slide ${current}`}
-          className="w-full h-100 md:h-96 lg:h-[500px] p-2  object-cover overflow-hidden"
+          className="w-full md:h-96 lg:h-[600px]  md:pt-8 lg:pt-18 sm:pt-2 "
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
