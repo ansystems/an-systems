@@ -1,15 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState ,useEffect} from "react";
 import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import logo from "../assets/logo.jpeg";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false); // scroll background
   const location = useLocation();
 
-  // Scroll check
-  useEffect(() => {
-    const handleScroll = () => {
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+  
+  ];
+
+  // for scrolling color change
+
+    useEffect(() => {
+    const onScroll = () => {
       if (window.scrollY > 50) {
         setScrolled(true);
       } else {
@@ -17,122 +27,130 @@ function Navbar() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 text-white shadow-lg 
-      ${scrolled ? "bg-blue-900" : "bg-transparent"}`}
-    >
-      <div className="container mx-auto flex justify-between items-center p-4">
+    <nav className={`fixed top-0 left-0 w-full mb-20  text-white z-50 backdrop-blur-2xl transition-colors duration-300 ease-in-out
+    ${scrolled ? "bg-blue-900" : "bg-transparent"}`}>
+
+
+      <div className="max-w-7xl mx-auto px-2 py-1 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
-          <img src={logo} alt="Logo" className="w-10 h-10 rounded-full" />
-          <span className="text-xl font-bold">AN Systems</span>
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src={logo}
+            alt="AN-SYSTEMS Logo"
+            className="h-10 md:h-12 object-contain"
+          />
+          <div className="flex flex-col">
+            <span className="text-xl md:text-2xl font-bold">AN-SYSTEMS</span>
+            <span className="text-sm md:text-base text-gray-300 uppercase tracking-wide">
+              Software Consultancy
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6">
-          <Link
-            to="/"
-            className={`hover:text-gray-300 transition ${
-              location.pathname === "/" ? "font-semibold" : ""
-            }`}
-          >
-            Home
-          </Link>
-          <Link
-            to="/about"
-            className={`hover:text-gray-300 transition ${
-              location.pathname === "/about" ? "font-semibold" : ""
-            }`}
-          >
-            About
-          </Link>
-          <Link
-            to="/services"
-            className={`hover:text-gray-300 transition ${
-              location.pathname === "/services" ? "font-semibold" : ""
-            }`}
-          >
-            Services
-          </Link>
-          <Link
-            to="/contact"
-            className={`hover:text-gray-300 transition ${
-              location.pathname === "/contact" ? "font-semibold" : ""
-            }`}
-          >
-            Contact
-          </Link>
+        <div className="hidden md:flex gap-8">
+          {navLinks.map((link, i) => (
+            <motion.div
+              key={i}
+              className="p-2 rounded-full border border-transparent"
+              whileHover={{
+                scale: 1.099,
+                y: -2,
+                backgroundColor: "rgba(255,255,255,0.08)", // transparent glass effect
+                borderColor: "rgba(255,255,255,1)", // purple border
+                boxShadow: "0px 10px 22px rgba(0,0,0,0.25)", // 3D shadow
+              }}
+              whileTap={{
+                scale: 1.099,
+                y: -2,
+                backgroundColor: "rgba(255,255,255,0.08)", // transparent glass effect
+                 borderColor: "rgba(255,255,255,1)", // darker purple when clicked
+                boxShadow: "0px 10px 22px rgba(0,0,0,0.25)",
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            >
+              <Link
+                to={link.path}
+                className={`px-4 py-2 rounded-full transition-colors ${
+                  location.pathname === link.path
+                    ? "text-red-400 font-semibold"
+                    : "hover:text-red-400"
+                }`}
+              >
+                {link.name}
+              </Link>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Mobile Hamburger */}
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
-              )}
-            </svg>
-          </button>
-        </div>
+        {/* Mobile Hamburger Toggle */}
+        <button
+          className="md:hidden text-2xl focus:outline-none"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle Menu"
+        >
+          {open ? "✖" : "☰"}
+        </button>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-blue-600 text-white">
-          <Link
-            to="/"
-            onClick={() => setIsOpen(false)}
-            className="block px-4 py-2 hover:bg-blue-700"
-          >
-            Home
-          </Link>
-          <Link
-            to="/about"
-            onClick={() => setIsOpen(false)}
-            className="block px-4 py-2 hover:bg-blue-700"
-          >
-            About
-          </Link>
-          <Link
-            to="/services"
-            onClick={() => setIsOpen(false)}
-            className="block px-4 py-2 hover:bg-blue-700"
-          >
-            Services
-          </Link>
-          <Link
-            to="/contact"
-            onClick={() => setIsOpen(false)}
-            className="block px-4 py-2 hover:bg-blue-700"
-          >
-            Contact
-          </Link>
-        </div>
-      )}
+      <AnimatePresence>
+
+        {open && (
+          
+            <ul className="flex flex-col px-4 py-5 space-y-3 justify-center items-center rounded-full mx-5 my-5">
+              {navLinks.map((link, i) => (
+                <li key={i}>
+                  <motion.div
+                          key={i}
+              className="px-4 rounded-4xl border border-transparent"
+              whileHover={{
+                scale: 1.099,
+                y: -3,
+                backgroundColor: "rgba(255,255,255,0.08)", // transparent glass effect
+                borderColor: "rgba(255,255,255,1)", // purple border
+                boxShadow: "0px 10px 22px rgba(0,0,0,0.25)", // 3D shadow
+              }}
+              whileTap={{
+                scale: 1.099,
+                y: -3,
+                backgroundColor: "rgba(255,255,255,0.08)", // transparent glass effect
+                 borderColor: "rgba(255,255,255,1)", // darker purple when clicked
+                boxShadow: "0px 10px 22px rgba(0,0,0,0.25)",
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            >
+              
+          
+                  <Link
+                    to={link.path}
+                    className={`block py-2 hover:text-red-400 ${
+                      location.pathname === link.path
+                        ? "red-purple-400 font-semibold"
+                        : ""
+                    }`}
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                  </motion.div>
+                </li>
+                 
+              ))}
+            </ul>
+         
+        )}
+      </AnimatePresence>
     </nav>
   );
-}
+};
 
 export default Navbar;
